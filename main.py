@@ -3,7 +3,9 @@ def print_menu():
     print("2. Afisare lista dupa eliminarea elementelor prime")
     print("3. Media aritmetica este mai mare decat un nr dat")
     print("4. Lista obtinuta prin adaugare dupa fiecare element a nr de divizori proprii ai elementului")
-    print("5. Lista obtinuta din cea initiala in care numerele sunt inlocuite cu un tuplu in care")
+    print("5. Lista obtinuta din cea initiala in care numerele sunt inlocuite cu un tuplu in care \n")
+    print("pe prima pozitie este numarul, pe a doua pozitie este index-ul sau in lista iar pe a treia pozitie \n")
+    print("se afla numarul de aparitii a numarului in lista")
     print("x. Iesire")
 
 
@@ -102,7 +104,6 @@ def test_tuples():
 
 
 def main():
-    print(frequency([2, 3, 2, 2, 2], 2))
     test_remove_prime_numbers()
     test_average_above_n()
     test_add_div_count()
