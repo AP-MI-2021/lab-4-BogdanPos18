@@ -81,10 +81,32 @@ def test_add_div_count():
     assert (add_div_count([2, 3, 5, 7]) == [2, 1, 3, 2, 5, 1, 7, 2]) is False
 
 
+def frequency(list, a):
+    fr = 0
+    for x in list:
+        if x == a:
+            fr += 1
+    return fr
+
+
+def tuples(list):
+    rez = []
+    for i in range(len(list)):
+        rez.append([list[i], i, frequency(list, list[i])])
+    list = rez
+    return list
+
+
+def test_tuples():
+    assert (tuples([25, 13, 26, 13]) == [[25, 0, 1], [13, 1, 2], [26, 2, 1], [13, 3, 2]]) is True
+
+
 def main():
+    print(frequency([2, 3, 2, 2, 2], 2))
     test_remove_prime_numbers()
     test_average_above_n()
     test_add_div_count()
+    test_tuples()
     l = []
     while True:
         print_menu()
@@ -101,6 +123,8 @@ def main():
                 print("NU")
         elif optiune == "4":
             print(add_div_count(l))
+        elif optiune == "5":
+            print(tuples(l))
         else:
             break
 
