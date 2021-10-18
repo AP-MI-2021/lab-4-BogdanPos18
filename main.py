@@ -2,7 +2,7 @@ def print_menu():
     print("1. Citire lista de nr intregi")
     print("2. Afisare lista dupa eliminarea elementelor prime")
     print("3. Media aritmetica este mai mare decat un nr dat")
-    print("4. Lista obtinuta prin adaugare dupa fiecare element nr de divizori proprii ai elementului")
+    print("4. Lista obtinuta prin adaugare dupa fiecare element a nr de divizori proprii ai elementului")
     print("5. Lista obtinuta din cea initiala in care numerele sunt inlocuite cu un tuplu in care")
     print("x. Iesire")
 
@@ -59,9 +59,32 @@ def test_average_above_n():
     assert average_above_n([1, 6, 9, 10], 7) is False
 
 
+def div_count(x):
+    counter = 0
+    for i in range(2, x//2 + 1):
+        if x % i == 0:
+            counter += 1
+    return counter
+
+
+def add_div_count(list):
+    rez = []
+    for i in range(len(list)):
+        rez.append(list[i])
+        rez.append(div_count(list[i]))
+    list = rez
+    return list
+
+
+def test_add_div_count():
+    assert (add_div_count([19, 5, 24, 12, 9]) == [19, 0, 5, 0, 24, 6, 12, 4, 9, 1]) is True
+    assert (add_div_count([2, 3, 5, 7]) == [2, 1, 3, 2, 5, 1, 7, 2]) is False
+
+
 def main():
     test_remove_prime_numbers()
     test_average_above_n()
+    test_add_div_count()
     l = []
     while True:
         print_menu()
@@ -76,6 +99,8 @@ def main():
                 print("DA")
             else:
                 print("NU")
+        elif optiune == "4":
+            print(add_div_count(l))
         else:
             break
 
